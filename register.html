@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>register</title>
+    <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container" id="login" style="display: none">
+      <form action="">
+        <h1>Login</h1>
+        <div class="input-group">
+          <input
+            type="text"
+            name="username"
+            id="Luser-name"
+            placeholder="Username"
+            required
+          />
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="input-group">
+          <input
+            type="password"
+            name="password"
+            id="password-login"
+            placeholder="Password"
+            required
+          />
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <div class="remeber-forget">
+          <label>
+            <input type="checkbox" name="remeberme" id="remeber-me" />
+            Remeber me
+          </label>
+          <a href="#">Forget password</a>
+        </div>
+        <input type="submit" class="btn" value="Login" name="login" />
+
+        <div class="register-link">
+          <p>
+            Don't have an account?<button class="btn2" id="register-button">
+              Register
+            </button>
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <div class="container" id="register">
+      <h1>Register</h1>
+      <form method="post" action="register.php">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input
+            type="text"
+            name="Name"
+            id="Name"
+            placeholder="Your Name"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input
+            type="text"
+            name="user-name"
+            id="user-ame"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input
+            type="password"
+            name="password"
+            id="password-register"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <input type="submit" class="btn" value="Register" name="signUp" />
+      </form>
+      <div class="register-link">
+        <p>
+          Already Have Account ?
+          <button id="login-button" class="btn2">Login</button>
+        </p>
+      </div>
+    </div>
+    <script src="js/register.js"></script>
+  </body>
+</html>
