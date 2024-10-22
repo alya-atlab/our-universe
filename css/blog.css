@@ -1,0 +1,293 @@
+:root {
+  --main-color1: #0d031f;
+  --main-color2: #0e021a;
+  --second-color: #940494;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+ul {
+  list-style: none;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  background-image: url("/imgs/blogg.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+::selection {
+  background-color: #ffffff25;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgb(0 0 0 / 80%);
+}
+
+header .container::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: #8c8c8c;
+  bottom: 0;
+  width: calc(100% - 30px);
+  left: 15px;
+}
+header .container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  min-height: 87px;
+  justify-content: space-between;
+}
+
+header nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+header nav ul {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  width: 100%;
+}
+header nav ul li a {
+  display: flex;
+  margin-right: 10px;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: 0.2s;
+  position: relative;
+  z-index: 2;
+  /* padding: 37px 10px; */
+  font-size: 20px;
+}
+header nav ul li a:last-child {
+  margin-left: 20px;
+}
+header nav ul li a:hover,
+header nav .active {
+  color: var(--second-color);
+}
+header .register svg {
+  color: white;
+}
+@media (max-width: 1030px) {
+  header nav ul {
+    display: none;
+  }
+}
+.blog-header {
+  text-align: center;
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-header h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.blog-header p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+.featured-posts {
+  padding: 50px 0;
+}
+
+.featured-posts h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 50px;
+}
+
+.post-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.post-card {
+  width: 30%;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 80px rgba(255, 255, 255, 0.571);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 769px) {
+  .post-card {
+    width: 80%;
+  }
+}
+.post-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.post-card h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.post-card p {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.post-card a {
+  color: #007bff;
+}
+.btn {
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 20px 50px;
+  color: #ffffff;
+  text-transform: uppercase;
+  backdrop-filter: blur(5px);
+}
+
+.btn:hover {
+  box-shadow: 1px 1px 25px 10px #9294f866;
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, #9294f866, transparent);
+  transition-duration: 0.65s;
+}
+
+.btn:hover:before {
+  left: 100%;
+}
+.post-card .btn,
+.all-card .btn,
+.newsletter .btn {
+  padding: 10px 30px;
+  font-size: 16px;
+  color: white;
+}
+.blog-categories {
+  padding: 50px 0;
+}
+
+.blog-categories h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.blog-categories nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.blog-categories nav a {
+  margin: 10px;
+  padding: 10px 20px;
+  backdrop-filter: blur(20px);
+  border-radius: 5px;
+  color: white;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.258);
+}
+
+footer {
+  backdrop-filter: blur(20px);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 0 50px white;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer .social-media {
+  margin: 10px 0;
+}
+
+footer .social-media a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer .newsletter input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  width: 200px;
+  background: transparent;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.527);
+  color: white;
+  transition-duration: 1s;
+}
+footer .newsletter input::placeholder {
+  color: white;
+}
+footer .newsletter input:focus {
+  border: none;
+  box-shadow: 20px 30px 50px rgba(255, 255, 255, 0.55);
+  margin-right: 30px;
+  transform: scale(1.02);
+}
+footer .newsletter button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #555;
+  color: #fff;
+  cursor: pointer;
+}
+
+footer .newsletter button:hover {
+  background-color: #777;
+}

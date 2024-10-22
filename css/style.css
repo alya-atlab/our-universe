@@ -1,0 +1,576 @@
+:root {
+  --main-color1: #0d031f;
+  --main-color2: #0e021a;
+  --second-color: #940494;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+ul {
+  list-style: none;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(var(--main-color1), var(--main-color2));
+  color: white;
+}
+.stars {
+  background-image: url("../imgs/stars1.webp");
+  background-attachment: fixed;
+}
+::selection {
+  background-color: #ffffff25;
+}
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgb(0 0 0 / 80%);
+}
+
+header .container::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: #8c8c8c;
+  bottom: 0;
+  width: calc(100% - 30px);
+  left: 15px;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  min-height: 97px;
+}
+
+header nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+header nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 0;
+}
+header nav .toggle-menu {
+  display: none;
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+@media (max-width: 1030px) {
+  header nav ul {
+    display: none;
+  }
+  header nav .toggle-menu {
+    display: block;
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgb(0 0 0 / 50%);
+  }
+  header nav ul li a {
+    padding: 15px !important;
+  }
+}
+header nav ul li {
+  height: 95px;
+}
+header nav ul li a {
+  display: flex;
+  margin-right: 10px;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: 0.2s;
+  position: relative;
+  z-index: 2;
+  padding: 37px 10px;
+  font-size: 20px;
+}
+header nav ul li a:last-child {
+  margin-left: 20px;
+}
+header nav ul li a.active,
+header nav ul li:not(:last-child) a:hover {
+  color: var(--second-color);
+  border-bottom: 1px solid var(--second-color);
+}
+
+.landing {
+  width: 100%;
+}
+.landing .main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(var(--main-color1), var(--main-color2));
+  overflow: hidden;
+}
+.landing .main::after {
+  content: "";
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  bottom: -5%;
+  background: linear-gradient(to top, var(--main-color1), transparent);
+}
+.landing .main img {
+  position: absolute;
+  width: 100%;
+  height: 110vh;
+  object-fit: cover;
+}
+.landing .main img:nth-child(3) {
+  mix-blend-mode: screen;
+  transform: translateY(50px);
+}
+.landing .main h2 {
+  font-size: 10px;
+  transform: translateY(-120px);
+  position: fixed;
+}
+@media (max-width: 769px) {
+  .landing .main h2 {
+    transform: translateY(-221px);
+  }
+}
+.landing .content {
+  margin: 50px 10px 10px;
+  z-index: 101;
+  background-image: url("/imgs/stars1.webp");
+}
+.landing .content h2 {
+  margin: 50px;
+  text-align: center;
+  font-size: 40px;
+}
+.landing .content p {
+  text-align: justify;
+  margin: 20px;
+  font-size: 20px;
+}
+.each-planet {
+  display: none;
+  width: 90%;
+  height: 91%;
+  position: absolute;
+  z-index: 1000;
+  left: 4%;
+  top: 6%;
+  border-radius: 20px;
+}
+.each-planet .sky {
+  width: 90vw;
+  height: 91vb;
+  background: linear-gradient(var(--main-color1), var(--main-color2));
+  border-radius: 20px;
+}
+.each-planet .sky .stars {
+  width: 90vw;
+  height: 91vb;
+  background-image: url("/imgs/stars1.webp");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  position: relative;
+}
+.each-planet ul {
+  background-image: url("/imgs/stars1.webp");
+  position: absolute;
+  top: 20px;
+  padding: 0;
+  margin: 0;
+}
+.each-planet ul li a {
+  color: white;
+  font-size: 20px;
+  background-color: darkblue;
+  text-decoration: none;
+  height: 55px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  transition: 0.5s;
+  border-radius: 40px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 100;
+}
+
+.each-planet ul li::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 100px;
+  transform: translate(-50%, -50%);
+  font-weight: 900;
+  opacity: 0;
+  transition: 0.5s;
+  letter-spacing: 100px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.each-planet ul li::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 80px orangered;
+  transform: translate(-50%, 50%);
+  transition: 0.5s;
+  opacity: 0;
+}
+.each-planet ul:hover li a {
+  opacity: 0;
+}
+.each-planet ul li a:hover {
+  opacity: 1;
+  transform: scale(1.5);
+  background-color: var(--second-color);
+}
+.each-planet ul li:hover::after {
+  opacity: 0.5;
+  letter-spacing: 10px;
+}
+.each-planet ul li:hover::before {
+  opacity: 0.5;
+  width: 100px;
+}
+
+.each-planet .close {
+  display: none;
+  position: absolute;
+  top: -2%;
+  left: -2%;
+}
+.animated {
+  animation-name: planets;
+  animation-duration: 6s;
+}
+.explore-space {
+  position: relative;
+  text-align: center;
+  color: white;
+  margin: 50px 0;
+  background: linear-gradient(var(--main-color1), var(--main-color2));
+  padding: 50px 0;
+}
+.landing .content::after {
+  content: "";
+  left: 0;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  height: 120px;
+  background: linear-gradient(
+    var(--main-color2),
+    var(--main-color1),
+    transparent
+  );
+  display: block;
+}
+.explore-space {
+  color: white;
+  margin: 50px 0;
+  height: 100vb;
+  background-image: url("/imgs/astronaut-space.jpg");
+  background-size: cover;
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.explore-space h2 {
+  font-size: 36px;
+  margin: 20px 0;
+  opacity: 0;
+  padding: 0 10px;
+  z-index: 3;
+}
+.explore-space .start {
+  animation-name: title;
+  animation-duration: 1s;
+  opacity: 1;
+}
+.the-universe {
+  position: relative;
+  background-image: url("/imgs/stars1.webp");
+}
+.the-universe::before {
+  content: "";
+  left: 0;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  height: 120px;
+  background: linear-gradient(
+    to top,
+    var(--main-color2),
+    var(--main-color1),
+    transparent
+  );
+  display: block;
+  top: -19%;
+}
+@media (max-width: 768px) {
+  .the-universe::before {
+    top: -14%;
+  }
+}
+.the-universe h2 {
+  margin: 50px;
+  text-align: center;
+  font-size: 40px;
+}
+.the-universe p {
+  text-align: justify;
+  margin: 20px;
+}
+.the-universe .container {
+  display: flex;
+}
+.the-universe .container .images {
+  min-width: 40%;
+  width: 50%;
+  height: 100%;
+  position: relative;
+  box-shadow: 0 0 80px rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+@media (max-width: 1030px) {
+  .the-universe .images {
+    display: none;
+  }
+}
+.the-universe .images img:not(.on) {
+  display: none;
+}
+.the-universe .images img.on {
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+  border-radius: 10px;
+}
+.planets-info {
+  margin-top: 50px;
+  /* max-height: 100vb; */
+}
+.planets-info .planet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 70px auto;
+  padding: 10px;
+  flex-wrap: wrap;
+  /* background-image: url("/imgs/stars1.webp"); */
+}
+.planets-info .planet h2 {
+  margin-bottom: 20ox;
+  font-size: 30px;
+  text-align: center;
+  flex-basis: 100%;
+}
+
+.planets-info .planet img {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  object-fit: cover;
+  margin-bottom: 15px;
+  display: block;
+  margin-right: 30px;
+}
+
+.planets-info .planet .container {
+  text-align: justify;
+  flex-basis: 50%;
+  line-height: 1.5;
+  font-size: 20px;
+}
+.planets-info .links {
+  display: flex;
+  justify-content: center;
+}
+.planets-info .glow-on-hover {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+#contact-us {
+  padding: 30px;
+  border-radius: 10px;
+  background-image: url("/imgs/stars1.webp");
+  margin: 2rem 0;
+}
+#contact-us .container {
+  width: 420px;
+  background-color: transparent;
+  border: 2px solid rgb(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+  padding: 30px 40px;
+}
+#contact-us h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#contact-us p {
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+.contact-methods {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-methods li {
+  margin-bottom: 15px;
+}
+
+.contact-methods a {
+  text-decoration: none;
+  color: white;
+}
+.contact-methods a:hover {
+  text-decoration: underline;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@keyframes title {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes planets {
+  0% {
+    opacity: 0.1;
+    width: 100vw;
+    height: 150px;
+  }
+  70% {
+    opacity: 0.5;
+    width: 80vw;
+    height: 100px;
+  }
+  100% {
+    opacity: 1;
+    width: 300px;
+    height: 55px;
+  }
+}
